@@ -7,22 +7,25 @@ public class QuestPresenter : MonoBehaviour
     [SerializeField] Text StageText;
     [SerializeField] PlayerStatusView playerStatusView;
 
-    int CurrenStage = 0;
+    PlayerModel playerModel;
 
     void Start()
     {
-        StageText.text = string.Format("Stage:{0}", CurrenStage);
-        playerStatusView.UpdateText(10, 100, 5);
+        playerModel = new PlayerModel();
+
+        StageText.text = string.Format("Stage : {0}", playerModel.CurrenStage);
+        playerStatusView.UpdateText(playerModel);
     }
 
     public void OnNextButton()
     {
-        CurrenStage++;
-        StageText.text = string.Format("Stage:{0}", CurrenStage);
+        playerModel.NextStage();
+        StageText.text = string.Format("Stage : {0}", playerModel.CurrenStage);
     }
 
     public void OnBackButton()
     {
+        playerModel.BackToTown();
         SceneManager.LoadScene("Town");
     }
 }
