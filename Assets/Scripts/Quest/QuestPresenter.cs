@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 public class QuestPresenter : MonoBehaviour
 {
     [SerializeField] Text StageText;
+    [SerializeField] PlayerStatusView playerStatusView;
 
     int CurrenStage = 0;
 
     void Start()
     {
         StageText.text = string.Format("Stage:{0}", CurrenStage);
+        playerStatusView.UpdateText(10, 100, 5);
     }
 
     public void OnNextButton()
