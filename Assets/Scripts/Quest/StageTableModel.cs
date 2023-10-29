@@ -5,33 +5,38 @@ using UnityEngine;
 public class StageTableModel
 {
     int MaxStageCount = 10;
-    List<bool> enemyPoint;
+    List<StegeModel> stageModelList;
 
     public StageTableModel()
     {
-        enemyPoint = new List<bool>();
+        stageModelList = new List<StegeModel>();
 
         for (int i = 0; i < MaxStageCount; i++)
         {
-            enemyPoint.Add(false);
+            stageModelList.Add(new StegeModel());
         }
 
-        enemyPoint[3] = true;
-        enemyPoint[5] = true;
-        enemyPoint[8] = true;
+        stageModelList[3].Monster = new MonsterModel();
+        stageModelList[5].Monster = new MonsterModel();
+        stageModelList[8].Monster = new MonsterModel();
     }
 
     public bool IsEnemyPointAt(int currenStage)
     {
-        return enemyPoint[currenStage];
+        return stageModelList[currenStage].HasMonster();
     }
 
     public bool HasGameCleared(int currenStage)
     {
-        if (enemyPoint.Count <= currenStage)
+        if (stageModelList.Count <= currenStage)
         {
             return true;
         }
         return false;
+    }
+
+    public MonsterModel GetMonster(int currenStage)
+    {
+        return stageModelList[currenStage].Monster;
     }
 }
