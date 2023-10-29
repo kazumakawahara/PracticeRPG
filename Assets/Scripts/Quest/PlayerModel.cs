@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel
 {
     int maxHp;
     int hp;
