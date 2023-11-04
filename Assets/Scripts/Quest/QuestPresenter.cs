@@ -19,6 +19,13 @@ public class QuestPresenter : MonoBehaviour
         playerStatusView.UpdateText(playerModel);
     }
 
+    void SetupMonster()
+    {
+        // モンスター生成
+        MonsterModel monsterModel = stageTableModel.GetMonster(playerModel.CurrenStage);
+
+    }
+
     public void OnNextButton()
     {
         playerModel.NextStage();
@@ -31,6 +38,7 @@ public class QuestPresenter : MonoBehaviour
         else if (stageTableModel.IsEnemyPointAt(playerModel.CurrenStage))
         {
             Debug.Log("敵の出現");
+            SetupMonster();
         }
     }
 
