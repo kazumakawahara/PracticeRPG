@@ -9,7 +9,7 @@ public class PlayerStatusView : MonoBehaviour
 
     public void UpdateText(PlayerModel playerModel)
     {
-        hpTaxt.text = string.Format("HP：{0}/{1}", playerModel.HP, playerModel.MaxHP);
-        atText.text = string.Format("AT：{0}", playerModel.AT);
+        hpTaxt.text = string.Format("HP : {0}/{1}", playerModel.HP, playerModel.MaxHP);
+        atText.text = string.Format("AT : {0}", playerModel.AT);
     }
 }
