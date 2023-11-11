@@ -6,6 +6,8 @@ public class QuestPresenter : MonoBehaviour
 {
     [SerializeField] Text StageText;
     [SerializeField] PlayerStatusView playerStatusView;
+    [SerializeField] StageView stageView;
+    [SerializeField] GameObject menuView;
 
     PlayerModel playerModel;
     StageTableModel stageTableModel;
@@ -21,8 +23,13 @@ public class QuestPresenter : MonoBehaviour
 
     void SetupMonster()
     {
+        menuView.SetActive(false);
+
         // モンスター生成
         MonsterModel monsterModel = stageTableModel.GetMonster(playerModel.CurrenStage);
+
+        // モンスター描画
+        stageView.SpawnMonster();
 
     }
 
